@@ -20,10 +20,8 @@ function group(ns: number[]): number[][] {
       temp = [currentNum];
     }
   }
+  res.push(temp);
 
-  if (temp.length !== 0) {
-    res.push(temp);
-  }
   return res;
 }
 
