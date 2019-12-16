@@ -44,6 +44,7 @@ function ant(ns: number[]): number[] {
 
 /**
  * prints
+ * 1 [ 1 ]
  * 2 [ 1, 1 ]
  * 3 [ 2, 1 ]
  * 4 [ 1, 2, 1, 1 ]
@@ -56,6 +57,7 @@ function ant(ns: number[]): number[] {
  */
 function main() {
   let antSeq = [1];
+  console.log(1, antSeq);
   for (let i = 1; i < 10; i += 1) {
     antSeq = ant(antSeq);
     console.log(i + 1, antSeq);
