@@ -13,7 +13,7 @@ function printAnt(antGen: Generator) {
   console.log(); // NOTE: for new line
 }
 
-function* gen(x: any) {
+function* gen(x: number[]) {
   yield* x;
 }
 
