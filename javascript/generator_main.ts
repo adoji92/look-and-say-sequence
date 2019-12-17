@@ -6,14 +6,18 @@ function ant(n: number) {
   return s;
 }
 
-function printAnt(antGen: Generator) {
-  for (const num of antGen) {
+export function printGen(g: Generator) {
+  let count = 0;
+  for (const num of g) {
+    // console.log('num', num);
     process.stdout.write((num as number).toString());
+    count += 1;
   }
   console.log(); // NOTE: for new line
+  // console.log('printGenCount', count);
 }
 
-function* gen(x: number[]) {
+export function* gen(x: any) {
   yield* x;
 }
 
@@ -36,8 +40,8 @@ function main() {
   for (let i = 1; i <= 10; i += 1) {
     const a = ant(i);
     process.stdout.write(`i ${i}, `);
-    printAnt(a);
+    printGen(a);
   }
 }
 
-main();
+// main();
