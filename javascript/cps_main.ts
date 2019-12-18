@@ -54,7 +54,7 @@ function write(value: number, next?: Job): WriteJob {
  * implemented by author
  */
 function* dispatch(processes: any[]) {
-  let readers: Job[] = [];
+  let readers: ReadJob[] = [];
 
   while (true) {
     let current = processes.pop();
