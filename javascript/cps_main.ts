@@ -1,3 +1,5 @@
+import { printGen } from './generator_main';
+
 /**
  * implemented by author
  */
@@ -52,7 +54,7 @@ function write(value: number, next?: Job): WriteJob {
  * implemented by author
  */
 function* dispatch(processes: any[]) {
-  let readers: number[] = [];
+  let readers: Job[] = [];
 
   while (true) {
     let current = processes.pop();
@@ -79,10 +81,28 @@ function* dispatch(processes: any[]) {
 /**
  * should be implemented by olaf
  */
-function init() {}
+function init() {
+  return write(1); // 이건 그래도 해냈다
+  // ㅋㅋ 에효
+}
 
 /**
  * should be implemented by olaf
  * @param n
  */
-function* ant(n: number) {}
+function* ant(n: number) {
+  const processes: Function[] = [init];
+  for (let i = 0; i < n; i += 1) {
+    processes.push(next);
+  }
+  yield* dispatch(processes); // 아 그렇네 함수들을 쳐넣는거네 여기 컨닝함 ㅠㅠ
+}
+
+function main() {
+  for (let i = 1; i < 10; i += 1) {
+    process.stdout.write(`i ${i + 1}, `);
+    printGen(ant(i));
+  }
+}
+
+main();
