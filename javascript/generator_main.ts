@@ -7,14 +7,10 @@ function ant(n: number) {
 }
 
 export function printGen(g: Generator) {
-  let count = 0;
   for (const num of g) {
-    // console.log('num', num);
     process.stdout.write((num as number).toString());
-    count += 1;
   }
   console.log(); // NOTE: for new line
-  // console.log('printGenCount', count);
 }
 
 export function* gen(x: any) {
